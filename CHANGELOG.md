@@ -6,7 +6,7 @@
 
 - Provide `GET /api/users/me/features` endpoint
 - Accessing `GET /api/users/me` with an invalid user id now returns a `unauthorized` error
-- Tasks' endpoints now return `Date` instead of timestamps
+- Tasks' and projects' endpoints now return `Date` instead of timestamps
 
 ## Ara 2018-09-09
 
