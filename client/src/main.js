@@ -1,3 +1,5 @@
+import './styles/app.scss'
+
 import Vue from 'vue'
 
 import LyBadge from './components/Ly/LyBadge'
