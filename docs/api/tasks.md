@@ -10,7 +10,7 @@ Parameters:
 |------------------|--------|-------------------------|----------|
 | task             | object |                         |          |
 | task.label       | string | Task's label            |          |
-| task.planned\_at | number | Task's due date         | yes      |
+| task.planned\_at | date   | Task's due date         | yes      |
 | task.project\_id | number | Task's project relation | yes      |
 
 Notes:

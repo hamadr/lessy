@@ -39,7 +39,7 @@
       'onSuccess': { type: Function },
       'onCancel': { type: Function },
       'autoFocus': { type: Boolean },
-      'plannedAt': { type: Object },
+      'plannedAt': { type: Date },
       'projectId': { type: Number },
       'show-warning': { type: Boolean },
     },
@@ -58,7 +58,7 @@
         this.$store
           .dispatch(action, {
             label: this.label,
-            plannedAt: this.plannedAt && this.plannedAt.unix(),
+            plannedAt: this.plannedAt,
             projectId: this.projectId,
           })
           .then((taskId) => {

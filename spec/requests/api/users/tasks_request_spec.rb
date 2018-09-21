@@ -137,7 +137,7 @@ RSpec.describe Api::Users::TasksController, type: :request do
       let(:payload) { {
         task: {
           label: 'My task',
-          planned_at: DateTime.new(2017).to_i,
+          planned_at: DateTime.new(2017).in_time_zone.as_json,
         },
       } }
 
@@ -209,7 +209,7 @@ RSpec.describe Api::Users::TasksController, type: :request do
     context 'with missing attribute' do
       let(:payload) { {
         task: {
-          planned_at: DateTime.new(2017).to_i,
+          planned_at: DateTime.new(2017).in_time_zone.as_json,
         },
       } }
 

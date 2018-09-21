@@ -74,7 +74,7 @@ RSpec.describe Api::ProjectsController, type: :request do
       project: {
         name: 'New name for a project',
         description: 'New description',
-        due_at: DateTime.new(2018, 1, 20).to_i,
+        due_at: DateTime.new(2018, 1, 20).in_time_zone.as_json,
       },
     } }
     let(:token) { user.token }
@@ -232,7 +232,7 @@ RSpec.describe Api::ProjectsController, type: :request do
       let(:payload) { {
         project: {
           state: 'started',
-          due_at: DateTime.new(2017, 01, 27).to_i,
+          due_at: DateTime.new(2017, 01, 27).in_time_zone.as_json,
         },
       } }
 
@@ -315,7 +315,7 @@ RSpec.describe Api::ProjectsController, type: :request do
 
       context 'with invalid due_at' do
         before do
-          payload[:project][:due_at] = DateTime.new(2016, 12, 31).to_i
+          payload[:project][:due_at] = DateTime.new(2016, 12, 31).in_time_zone.as_json
           subject
         end
 
@@ -336,7 +336,7 @@ RSpec.describe Api::ProjectsController, type: :request do
       let(:payload) { {
         project: {
           state: 'finished',
-          finished_at: DateTime.new(2017, 01, 19).to_i,
+          finished_at: DateTime.new(2017, 01, 19).in_time_zone.as_json,
         },
       } }
 
@@ -374,7 +374,7 @@ RSpec.describe Api::ProjectsController, type: :request do
 
       context 'with a finish date in the future' do
         before do
-          payload[:project][:finished_at] = 15.days.from_now.to_i
+          payload[:project][:finished_at] = 15.days.from_now.in_time_zone.as_json
           subject
         end
 
@@ -391,7 +391,7 @@ RSpec.describe Api::ProjectsController, type: :request do
 
       context 'with a finish date before started_at' do
         before do
-          payload[:project][:finished_at] = DateTime.new(2016, 12, 15).to_i
+          payload[:project][:finished_at] = DateTime.new(2016, 12, 15).in_time_zone.as_json
           subject
         end
 
@@ -443,7 +443,7 @@ RSpec.describe Api::ProjectsController, type: :request do
       let(:payload) { {
         project: {
           state: 'started',
-          due_at: DateTime.new(2017, 01, 27).to_i,
+          due_at: DateTime.new(2017, 01, 27).in_time_zone.as_json,
         },
       } }
 
@@ -463,7 +463,7 @@ RSpec.describe Api::ProjectsController, type: :request do
       let(:payload) { {
         project: {
           state: 'started',
-          finished_at: DateTime.new(2017, 01, 27).to_i,
+          finished_at: DateTime.new(2017, 01, 27).in_time_zone.as_json,
         },
       } }
       let(:token) { create(:user).token }

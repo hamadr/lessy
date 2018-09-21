@@ -34,7 +34,6 @@ private
     parameters = fetch_resource_params(:task, [:label], [:planned_at, :project_id])
     if parameters.has_key?(:planned_at)
       parameters[:state] = 'planned'
-      parameters[:planned_at] = parameters[:planned_at].to_datetime
       parameters[:started_at] = DateTime.now
     else
       parameters[:state] = 'newed'

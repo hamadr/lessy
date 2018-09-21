@@ -21,8 +21,6 @@
 </template>
 
 <script>
-  import moment from 'moment'
-
   import { mapGetters } from 'vuex'
 
   import TaskCreateForm from 'src/components/tasks/TaskCreateForm'
@@ -40,7 +38,7 @@
 
     data () {
       return {
-        plannedAt: moment(),
+        plannedAt: new Date(),
       }
     },
 
