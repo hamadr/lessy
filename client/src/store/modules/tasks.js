@@ -21,14 +21,18 @@ const getters = {
       }
 
       const today = moment()
-      const plannedAtDate = moment.unix(task.plannedAt)
 
       const isFinished = task.state === 'finished'
       const isAbandoned = task.state === 'abandoned'
 
-      const isForToday = !isAbandoned && plannedAtDate.isBetween(today.startOf('day'), today.endOf('day'), 'day', '[]')
+      const isForToday = task.plannedAt && moment(task.plannedAt).isBetween(
+        today.startOf('day'),
+        today.endOf('day'),
+        'day',
+        '[]'
+      )
       const isBacklogged = !isFinished && !isAbandoned && !isForToday
-      const startedSinceWeeks = task.startedAt > 0 ? moment.utc().diff(moment.unix(task.startedAt), 'weeks') : 0
+      const startedSinceWeeks = task.startedAt ? moment().diff(task.startedAt, 'weeks') : 0
 
       const allowedTags = ['b', 'i', 'em', 'strong']
       const anchorOptions = {
@@ -45,9 +49,14 @@ const getters = {
         isBacklogged,
         isFinished,
         isAbandoned,
+        startedAt: task.startedAt ? new Date(task.startedAt) : null,
+        plannedAt: task.plannedAt ? new Date(task.plannedAt) : null,
+        finishedAt: task.finishedAt ? new Date(task.finishedAt) : null,
+        abandonedAt: task.abandonedAt ? new Date(task.abandonedAt) : null,
+        createdAt: new Date(task.createdAt),
+        updatedAt: new Date(task.updatedAt),
         startedSinceWeeks,
         replannedCount: task.plannedCount - 1,
-        plannedAt: task.plannedAt ? new Date(task.plannedAt * 1000) : null,
         formattedLabel: anchorme(sanitizeHtml(task.label, { allowedTags }), anchorOptions),
       }
     }
@@ -115,8 +124,7 @@ const getters = {
   countFinishedByDays (state, getters) {
     const byDays = {}
     getters.listFinished.forEach((task) => {
-      const finishedAt = moment.unix(task.finishedAt)
-      const key = finishedAt.format('YYYY-MM-DD')
+      const key = moment(task.finishedAt).format('YYYY-MM-DD')
       byDays[key] = (byDays[key] || 0) + 1
     })
     return byDays
@@ -125,8 +133,7 @@ const getters = {
   countCreatedByDays (state, getters) {
     const byDays = {}
     getters.list.forEach((task) => {
-      const startedAt = moment.unix(task.startedAt)
-      const key = startedAt.format('YYYY-MM-DD')
+      const key = moment(task.startedAt).format('YYYY-MM-DD')
       byDays[key] = (byDays[key] || 0) + 1
     })
     return byDays
@@ -250,7 +257,7 @@ const mutations = {
       return {
         ...task,
         state: 'started',
-        startedAt: +moment(),
+        startedAt: new Date(),
       }
     })
     state.byIds = mapElementsById(tasks)
