@@ -3,10 +3,11 @@ import VueI18n from 'vue-i18n'
 
 import en from './en'
 import fr from './fr'
+import ru from './ru'
 
 Vue.use(VueI18n)
 
-export const SUPPORTED_LANGUAGES = ['en', 'fr']
+export const SUPPORTED_LANGUAGES = ['en', 'fr', 'ru']
 
 const i18n = new VueI18n({
   locale: getPreferedLanguage(),
@@ -14,10 +15,12 @@ const i18n = new VueI18n({
   messages: {
     en: en.messages,
     fr: fr.messages,
+    ru: ru.messages,
   },
   dateTimeFormats: {
     en: en.dateTimeFormats,
     fr: fr.dateTimeFormats,
+    ru: ru.dateTimeFormats,
   },
 })
 

@@ -2,6 +2,7 @@ export default {
   languages: {
     en: 'English',
     fr: 'Français',
+    ru: 'Русский',
   },
 
   dashboard: {
