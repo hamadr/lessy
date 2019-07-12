@@ -14,7 +14,7 @@ export default {
 
   errors: {
     _: {
-      login_failed: 'Oups ! Nous n’avons pas pu vous connecter, vos identifiants ne semblent pas valides.',
+      login_failed: 'Ой! Nous n’avons pas pu vous connecter, vos identifiants ne semblent pas valides.',
       missing_endpoint: 'Il semble que vous tentiez d’accéder à des ressources inconnues. Vous n’y êtes probablement pour rien et nous en sommes désolés. Nous faisons de notre mieux pour régler ce problème au plus vite !',
       registration_disabled: 'Les inscriptions ont été désactivées, vous n’êtes pas autorisé à vous créer un compte.',
       tos_not_accepted: 'Les conditions d’utilisation du service ont évolué. Veuiller rafraîchir la page pour continuer.',
@@ -22,27 +22,27 @@ export default {
     },
 
     project: {
-      parameter_missing: 'Un projet est nécessaire.',
-      record_not_found: 'Le projet n’a pas été trouvé.',
+      parameter_missing: 'Нужен проект.',
+      record_not_found: 'Проект не найден.',
 
       due_at: {
-        cannot_be_before_started_at: 'La date d’échéance ne peut précéder la date d’aujourd’hui.',
-        cannot_be_set: 'La date d’échéance ne peut pas être indiquée pour le moment.',
-        must_be_set: 'La date d’échéance est nécessaire.',
-        parameter_missing: 'La date d’échéance est nécessaire.',
+        cannot_be_before_started_at: 'Срок годности не может превышать сегодняшнюю дату.',
+        cannot_be_set: 'Срок действия не может быть указан на данный момент.',
+        must_be_set: 'Нужен срок годности.',
+        parameter_missing: 'Нужен срок годности.',
       },
 
       finished_at: {
-        cannot_be_after_today: 'La date de fin ne peut être au-delà de la date d’aujourd’hui.',
-        cannot_be_before_started_at: 'La date d’échéance ne peut pas précéder la date de début de tâche.',
-        cannot_be_set: 'La date de fin ne peut pas être indiquée pour le moment.',
-        must_be_set: 'La date de fin est nécessaire.',
-        parameter_missing: 'La date de fin est nécessaire.',
+        cannot_be_after_today: 'Дата окончания не может превышать сегодняшнюю дату.',
+        cannot_be_before_started_at: 'Срок выполнения не может превышать дату начала задачи.',
+        cannot_be_set: 'Дата окончания не может быть указана на данный момент.',
+        must_be_set: 'Нужен дата окончания.',
+        parameter_missing: 'Нужен дата окончания.',
       },
 
       name: {
-        blank: 'Le nom est nécessaire.',
-        parameter_missing: 'Le nom est nécessaire.',
+        blank: 'Нужен название.',
+        parameter_missing: 'Нужен название.',
         too_long: 'Le nom est trop long (100 caractères maximum).',
       },
 
@@ -58,11 +58,11 @@ export default {
     },
 
     task: {
-      parameter_missing: 'Une tâche est nécessaire.',
-      record_not_found: 'La tâche n’a pas été trouvée.',
+      parameter_missing: 'Нужен задача.',
+      record_not_found: 'Задача не найдена.',
 
       label: {
-        parameter_missing: 'Le libellé est nécessaire.',
+        parameter_missing: 'Нужен этикетка.',
       },
 
       state: {
@@ -71,25 +71,25 @@ export default {
     },
 
     user: {
-      parameter_missing: 'Un utilisateur/une utilisatrice est nécessaire.',
-      record_not_found: 'L’utilisateur/utilisatrice n’a pas été trouvé·e.',
-      user_inactive: 'Votre compte n’a jamais été activé.',
+      parameter_missing: 'Нужен логин.',
+      record_not_found: 'Логин не найдено.',
+      user_inactive: 'Ваш аккаунт никогда не был активированный.',
 
       email: {
-        parameter_missing: 'Le nom d’utilisateur/utilisatrice est nécessaire.',
+        parameter_missing: 'Нужен логин.',
         taken: 'Un compte existe déjà avec cette adresse courriel.',
       },
 
       password: {
-        parameter_missing: 'Un nom d’utilisateur/utilisatrice est nécessaire.',
+        parameter_missing: 'Нужен логин.',
       },
 
       username: {
-        exclusion: 'Ce nom d’utilisateur/utilisatrice est un mot réservé.',
-        invalid: 'Le nom d’utilisateur/utilisatrice ne remplit pas les conditions demandées.',
-        parameter_missing: 'Un nom d’utilisateur/utilisatrice est nécessaire.',
-        taken: 'Ce nom d’utilisateur/utilisatrice n’est pas disponible.',
-        too_long: 'Ce nom d’utilisateur/utilisatrice est trop long (max. 25 caractères).',
+        exclusion: 'Логин est un mot réservé.',
+        invalid: 'Логин ne remplit pas les conditions demandées.',
+        parameter_missing: 'Нужен логин.',
+        taken: 'Логин недоступно.',
+        too_long: 'Логин est trop long (max. 25 caractères).',
       },
     },
   },
@@ -97,8 +97,8 @@ export default {
   general: {
     homePage: {
       browserTitle: 'Доброе пожаловать',
-      title: 'Maîtrisez votre temps',
-      intro: 'Concentrez vos efforts sur ce qui est vraiment essentiel, ne dites plus jamais « Je n’ai pas le temps ».',
+      title: 'Освоите свое время',
+      intro: 'Сосредоточьтесь на том, что действительно важно, никогда больше не говорите « у меня нет времени ».',
 
       registrationDisabled: 'Malheureusement, les inscriptions sont <strong>fermées</strong> pour le moment.',
       login: 'Уже есть аккаунт? Войти',
